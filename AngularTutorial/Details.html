@@ -1,0 +1,27 @@
+﻿{{action}} Item
+<div >
+    <form class="css-form"   name="myForm">
+        Name:
+          <input type="text" ng-model="item.Text" required name="text" /><br />
+        E-mail:
+        <input type="text" ng-model="item.DueDate" name="DueDate"  /><br />
+        Gender:
+        <input type="text" ng-model="item.Priority" required />        
+        <button ng-click="save()">{{action}}</button>
+        <!--<span class="error" ng-show="myForm.$error.url">Invalid Text format!</span>-->
+        <span class="error" ng-show="myForm.text.$error.required">
+        Required!</span>      
+    </form>
+</div>
+
+<style type="text/css">
+    .css-form input.ng-invalid.ng-dirty
+    {
+        background-color: #FA787E;
+    }
+
+    .css-form input.ng-valid.ng-dirty
+    {
+        background-color: #78FA89;
+    }
+</style>
