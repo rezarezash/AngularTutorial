@@ -13,8 +13,13 @@ namespace AngularTutorial.Models
         // 
         // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<AngularTutorial.Models.TodoContext>());
 
-        public TodoContext() : base("name=TodoContext")
+        public TodoContext()
+            : base("name=TodoContext")
         {
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TodoContext, Migrations.Configuration>());
         }
 
         public DbSet<Todo> Todoes { get; set; }
